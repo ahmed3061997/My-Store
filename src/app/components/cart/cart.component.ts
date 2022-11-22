@@ -23,23 +23,24 @@ export class CartComponent implements OnInit {
 
   selectChange(id: number, event: any): void {
     const selectedOption = event.target.options[event.target.options.selectedIndex].value;
-    const cartIdx = this.cart.findIndex(x => x.id === id);
-    cartIdx != -1 && this.cart.length > 0 ? this.cart[cartIdx].count = selectedOption : null;
-    this.cart.length > 0 ? this.productService.addToCart(this.cart) : null;
+    const product = this.cart.filter(x => x.id === id)[0];
+    product.count = selectedOption;
+    if (this.cart.length > 0)
+      this.productService.addToCart(this.cart)
     this.calculateTotalPrice()
   }
 
   removeCart(id: number): void {
-    const cartIdx = this.cart ? this.cart.findIndex(cart => cart.id === id) : -1;
-    if (cartIdx != -1 && this.cart.length > 0) {
-      this.cart.splice(cartIdx, 1)
+    const index = this.cart ? this.cart.findIndex(cart => cart.id === id) : -1;
+    if (index != -1 && this.cart.length > 0) {
+      this.cart.splice(index, 1)
       this.productService.addToCart(this.cart)
       this.calculateTotalPrice()
     }
   }
 
   calculateTotalPrice(): void {
-    this.totalPrice = this.cart.reduce((acc: number, val: any) => {
+    this.totalPrice = this.cart.reduce((acc: number, val: Product) => {
       return acc + val.price * Number(val.count);
     }, 0);
     this.totalPrice = Number(this.totalPrice.toFixed(2));

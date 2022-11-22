@@ -40,35 +40,28 @@ export class ProductDetailsComponent implements OnInit {
     const selectedOption = event.target[0].options[event.target[0].options.selectedIndex].value;
     const products: Product[] | [] = this.productService.getCartProducts();
 
-    const cartIdx = products.findIndex(cart => cart.id === product.id)
+    const index = products.findIndex(cart => cart.id === product.id)
     newProduct = products;
 
-    if ((cartIdx === -1) || (products.length === 0)) {
+    if ((index === -1) || (products.length === 0)) {
       newProduct.push(Object.assign(product, { count: selectedOption }))
       message = `New Item '${product.name}' added to cart`;
     } else {
-      const count: string = newProduct[cartIdx].count;
+      const count: string = newProduct[index].count;
       isCartOptionExist = selectedOption === count
 
       if (isCartOptionExist) {
         message = `${count} Item(s) of '${product.name}' already exist in cart.`;
       } else {
-        newProduct[cartIdx].id = product.id;
-        newProduct[cartIdx].count = selectedOption;
-        message = `${count} Item(s) of '${product.name}' already exist in cart. Will be updated to ${selectedOption}`;
+        newProduct[index].id = product.id;
+        newProduct[index].count = selectedOption;
+        message = `${count} Item(s) of '${product.name}' already exist in cart. Updated to ${selectedOption}`;
       }
-
     }
     !isCartOptionExist ? this.productService.addToCart(newProduct) : null;
 
     alert(message);
-
-    this.printLocalData(); // for debugging
     return false;
-  }
-
-  printLocalData(): void {
-    console.log(this.productService.getProduct())
   }
 
 }
