@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Head Phone",
+        "description": "Head Phone",
+        "price": "45.84",
+        "image": "./assets/images/headphone.png"
+    },
+    {
+        "id": 2,
+        "name": "Bag",
+        "description": "Bag",
+        "price": "94.51",
+        "image": "./assets/images/bag.png"
+    },
+    {
+        "id": 3,
+        "name": "Air Tag",
+        "description": "Air Tag",
+        "price": "82.59",
+        "image": "./assets/images/air_tag.png"
+    },
+    {
+        "id": 4,
+        "name": "Pen",
+        "description": "Pen",
+        "price": "13.73",
+        "image": "./assets/images/pen.png"
+    },
+    {
+        "id": 5,
+        "name": "Car Charger",
+        "description": "Car Charger",
+        "price": "12.15",
+        "image": "./assets/images/charger.png"
+    },
+    {
+        "id": 6,
+        "name": "USB Cable",
+        "description": "USB Cable",
+        "price": "19.15",
+        "image": "./assets/images/usb.png"
+    }
+]

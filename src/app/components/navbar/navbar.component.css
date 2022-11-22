@@ -1,0 +1,19 @@
+header {
+    background: #33B5E5;
+    padding: 1px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navbar {
+    margin: 7px;
+}
+
+.nav-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+a {
+    color: #ffffff;
+}
