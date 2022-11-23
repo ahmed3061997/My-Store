@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <div class="d-flex flex-row flex-wrap justify-content-center" style="gap:50px;">
         <div class="d-flex flex-column justify-content-center" *ngFor="let product of products">
-            <a routerLink="detail?id={{ product.id }}">
+            <a routerLink="detail/{{ product.id }}">
                 <img class="product-image" src='{{ product.image }}'>
             </a>
             <div class="product-detail"><b>{{ product.name }}</b></div>

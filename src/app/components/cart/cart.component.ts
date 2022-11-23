@@ -47,6 +47,6 @@ export class CartComponent implements OnInit {
 
   success(firstName: string): void {
     this.productService.resetCart();
-    this.route.navigateByUrl(`success?firstName=${firstName}&totalPrice=${this.totalPrice}`);
+    this.route.navigateByUrl(`success/${firstName}/${this.totalPrice}`);
   }
 }
