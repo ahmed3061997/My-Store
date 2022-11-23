@@ -13,19 +13,19 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:4200/assets/data.json');
+    return this.http.get<Product[]>('http://localhost:4200/assets/products.json');
   }
   
-  addToCart(product: Product[]): void {
+  updateCart(product: Product[]): void {
     this.myStorage.setItem('cart', JSON.stringify(product));
   }
 
-  getCartProducts(): Product[] | [] {
+  getCart(): Product[] | [] {
     const getProduct = this.myStorage.getItem('cart')
     return getProduct ? JSON.parse(getProduct) : [];
   }
 
-  clearCart(): void {
+  resetCart(): void {
     this.myStorage.clear();
   }
 }

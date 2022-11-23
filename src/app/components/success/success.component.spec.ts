@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrderPlacedComponent } from './order-placed.component';
+import { SuccessComponent } from './success.component';
 
-describe('OrderPlacedComponent', () => {
-  let component: OrderPlacedComponent;
-  let fixture: ComponentFixture<OrderPlacedComponent>;
+describe('SuccessComponent', () => {
+  let component: SuccessComponent;
+  let fixture: ComponentFixture<SuccessComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderPlacedComponent ]
+      declarations: [ SuccessComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OrderPlacedComponent);
+    fixture = TestBed.createComponent(SuccessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

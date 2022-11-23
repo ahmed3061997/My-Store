@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-order-placed',
-  templateUrl: './order-placed.component.html',
-  styleUrls: ['./order-placed.component.css']
+  selector: 'app-success',
+  templateUrl: './success.component.html',
+  styleUrls: ['./success.component.css']
 })
-export class OrderPlacedComponent implements OnInit {
+export class SuccessComponent implements OnInit {
 
   firstName: string | null = '';
   totalPrice: number | null = 0;

@@ -7,20 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { CartComponent } from './components/cart/cart.component';
-import { OrderPlacedComponent } from './components/order-placed/order-placed.component';
+import { SuccessComponent } from './components/success/success.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CreateFormComponent } from './components/create-form/create-form.component';
+import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     CartComponent,
-    OrderPlacedComponent,
+    SuccessComponent,
     ProductDetailsComponent,
     NavbarComponent,
-    CreateFormComponent
+    CheckoutFormComponent
   ],
   imports: [
     BrowserModule,

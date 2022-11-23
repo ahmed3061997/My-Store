@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, ProductCount } from 'src/app/models/product';
+import { Product } from 'src/app/models/product';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -9,7 +9,6 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  productCount: string[] = ProductCount;
 
   constructor(private productService: ProductService) { }
 
@@ -25,7 +24,7 @@ export class ProductListComponent implements OnInit {
     let isCartOptionExist: boolean = false;
 
     const selectedOption = event.target[0].options[event.target[0].options.selectedIndex].value;
-    const products: Product[] | [] = this.productService.getCartProducts();
+    const products: Product[] | [] = this.productService.getCart();
 
     const index = products.findIndex(cart => cart.id === product.id)
     newProduct = products;
@@ -46,7 +45,7 @@ export class ProductListComponent implements OnInit {
       }
 
     }
-    !isCartOptionExist ? this.productService.addToCart(newProduct) : null;
+    !isCartOptionExist ? this.productService.updateCart(newProduct) : null;
 
     alert(message);
     return false;

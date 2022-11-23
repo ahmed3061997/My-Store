@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product, ProductCount } from 'src/app/models/product';
+import { Product, } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -13,7 +13,6 @@ export class ProductDetailsComponent implements OnInit {
   id: number | null = null;
   products: Product[] = [];
   product: Product | null = null;
-  productCount: string[] = ProductCount;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -38,7 +37,7 @@ export class ProductDetailsComponent implements OnInit {
     let isCartOptionExist: boolean = false;
 
     const selectedOption = event.target[0].options[event.target[0].options.selectedIndex].value;
-    const products: Product[] | [] = this.productService.getCartProducts();
+    const products: Product[] | [] = this.productService.getCart();
 
     const index = products.findIndex(cart => cart.id === product.id)
     newProduct = products;
@@ -58,7 +57,7 @@ export class ProductDetailsComponent implements OnInit {
         message = `${count} Item(s) of '${product.name}' already exist in cart. Updated to ${selectedOption}`;
       }
     }
-    !isCartOptionExist ? this.productService.addToCart(newProduct) : null;
+    !isCartOptionExist ? this.productService.updateCart(newProduct) : null;
 
     alert(message);
     return false;
